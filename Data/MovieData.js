@@ -1,4 +1,4 @@
-export const Movies = [
+export const MoviesData = [
     {
         name: "Army Of The Dead",
         desc: "After a zombie outbreak in Las Vegas, a group of mercenaries take the ultimate gamble and venture into the quarantine zone in hopes of pulling off an impossible heist.",

@@ -229,9 +229,9 @@ const deleteLikedMovies = asyncHandler(async (req, res) => {
         const user = await User.findById(req.user._id);
         // if user exists delete all linked movies and save it in DB
         if(user) {
-            user.linkedMovies = [];
+            user.likedMovies = [];
             await user.save();
-            res.json({ message: "All liked movies deleted successfully "});
+            res.json({ message: "Your favorites movies deleted successfully "});
         }  
         // else send error message
         else {
