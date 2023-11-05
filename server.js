@@ -1,8 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { connect } from 'mongoose';
 import { connectDB } from './config/db.js';
+import userRouter from './Routes/UserRouter.js';
+import { errorHandler } from './Middlewares/errorMiddleware.js';
 
 dotenv.config();
 
@@ -13,9 +14,15 @@ app.use(express.json());
 // connect DB
 connectDB();
 
+// Main route
 app.get('/', (req, res) => {
     res.send('API is running...');
 });
+// other router
+app.use("/api/users", userRouter)
+
+// error handling middleware
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
