@@ -1,4 +1,4 @@
 step by step:
 1/ Setup:
     npm init -y
-    npm i bcryptjs cors dotenv express express-async-handler firebase-admin jsonwebtoken mongoose nodemon uuid-v4
+    npm i bcryptjs cors dotenv express express-async-handler firebase-admin jsonwebtoken mongoose nodemon uuid-v4 multer
