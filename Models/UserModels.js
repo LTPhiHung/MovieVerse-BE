@@ -24,7 +24,7 @@ const UserSchema = mongoose.Schema(
             type: Boolean,
             default: false,
         },
-        linkMovies: [
+        likedMovies: [
             {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Movie",
