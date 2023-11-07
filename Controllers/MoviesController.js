@@ -33,12 +33,11 @@ const getMovies = asyncHandler( async (req, res) => {
 
         // load more movies functionality
         const page = Number(req.query.pageNumber) || 1; // if page is not provided in query we set it to 1
-        const limit = 2; // 2 movies per page
+        const limit = 4; // 2 movies per page
         const skip = (page - 1) * limit; // slip 2 movies per page
 
         // find movies by query, skip and limit
-
-        const movie = await Movie.find(query)
+        const movies = await Movie.find(query)
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit);
@@ -48,7 +47,7 @@ const getMovies = asyncHandler( async (req, res) => {
 
         // send response with movies and total number of movies
         res.json({
-            movie,
+            movies,
             page,
             pages: Math.ceil(count / limit), //total number of pages
             totalMovies: count, //total number of movies
