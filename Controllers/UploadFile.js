@@ -22,7 +22,7 @@ UploadRouter.post("/", upload.single("file"), async (req, res) => {
             const blobStream = blob.createWriteStream({
                 resumable: false,
                 metadata: {
-                    contentTpe: file.mimetype,
+                    contentType: file.mimetype,
                 },
             });
             // if error
