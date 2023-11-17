@@ -32,4 +32,24 @@ router.delete("/favorites", protect, userController.deleteLikedMovies);
 router.get("/", protect, admin, userController.getUsers);
 router.delete("/:id", protect, admin, userController.deleteUser);
 
+router.get('/download-video', async (req, res) => {
+    const { url } = req.query;
+
+    try {
+        const { data } = await axios({
+            url,
+            method: 'GET',
+            responseType: 'blob',
+            // ...other configurations like headers, etc.
+        });
+
+        // Send the data back to the frontend
+        // res.setHeader('Content-Disposition', `attachment`);
+        res.send(data);
+    } catch (error) {
+        console.error('Error downloading video in backend', error);
+        res.status(500).send('Failed to download video');
+    }
+});
+
 export default router;

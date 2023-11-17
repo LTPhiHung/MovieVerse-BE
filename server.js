@@ -22,6 +22,12 @@ connectDB();
 app.get('/', (req, res) => {
     res.send('API is running...');
 });
+
+
+
+// Add router to your app
+// app.use('/api', router);
+
 // other router
 app.use("/api/users", userRouter);
 app.use("/api/movies", moviesRouter);
